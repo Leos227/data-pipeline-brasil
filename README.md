@@ -1,16 +1,18 @@
 # 🇧🇷 Data Pipeline Brasil
 
-Pipeline completo de Engenharia de Dados desenvolvido para demonstrar boas práticas utilizadas em projetos reais.
+Projeto de Engenharia de Dados desenvolvido para demonstrar a construção de um pipeline moderno utilizando tecnologias amplamente empregadas pelo mercado.
 
-## Objetivos
+## Objetivo
 
-- Consumir dados públicos do Banco Central
+Construir um pipeline de dados completo capaz de:
+
+- Extrair dados de APIs públicas
 - Armazenar dados em banco relacional
-- Transformar dados utilizando arquitetura em camadas
-- Automatizar o pipeline com Apache Airflow
-- Disponibilizar indicadores em dashboards Power BI
+- Aplicar transformações seguindo arquitetura em camadas
+- Automatizar processos utilizando Apache Airflow
+- Disponibilizar dados analíticos para dashboards no Power BI
 
-## Tecnologias
+## Stack
 
 - Python
 - PostgreSQL
@@ -24,7 +26,7 @@ Pipeline completo de Engenharia de Dados desenvolvido para demonstrar boas prát
 
 ## Arquitetura
 
-Banco Central API
+API Pública
 
 ↓
 
@@ -48,4 +50,18 @@ Power BI
 
 ↓
 
-Airflow
+Apache Airflow
+
+## Roadmap
+
+- [x] Configuração do ambiente
+- [ ] Extração de dados
+- [ ] Ingestão
+- [ ] Transformações
+- [ ] Orquestração
+- [ ] Dashboard
+- [ ] Deploy
+
+## Autor
+
+Leonardo Sousa da Silva
