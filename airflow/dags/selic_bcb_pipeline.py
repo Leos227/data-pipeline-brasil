@@ -1,5 +1,6 @@
-from datetime import datetime, timedelta, timezone
+from datetime import timedelta
 
+import pendulum
 from airflow.providers.standard.operators.bash import BashOperator
 from airflow.sdk import DAG
 
@@ -10,8 +11,13 @@ PROJECT_PATH = "/opt/airflow/project"
 with DAG(
     dag_id="selic_bcb_pipeline",
     description="Pipeline da taxa Selic do Banco Central do Brasil.",
-    start_date=datetime(2026, 1, 1, tzinfo=timezone.utc),
-    schedule=None,
+    start_date=pendulum.datetime(
+        2026,
+        1,
+        1,
+        tz="America/Sao_Paulo",
+    ),
+    schedule="0 6 * * *",
     catchup=False,
     default_args={
         "owner": "Leonardo",
