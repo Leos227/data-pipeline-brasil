@@ -38,7 +38,7 @@ def get_connection() -> psycopg.Connection[Any]:
         raise ValueError(f"Variáveis ausentes no .env: {missing}")
 
     return psycopg.connect(
-        host="localhost",
+        host=os.getenv("POSTGRES_HOST", "localhost"),
         port=os.environ["POSTGRES_PORT"],
         dbname=os.environ["POSTGRES_DB"],
         user=os.environ["POSTGRES_USER"],

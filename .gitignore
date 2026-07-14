@@ -25,3 +25,7 @@ Thumbs.db
 # Dados gerados localmente
 data/raw/*
 !data/raw/.gitkeep
+
+airflow/.env
+airflow/logs/*
+!airflow/logs/.gitkeep
