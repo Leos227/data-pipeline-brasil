@@ -78,12 +78,21 @@ x-airflow-common:
     AIRFLOW_CONFIG: '/opt/airflow/config/airflow.cfg'
     PYTHONPATH: /opt/airflow/project
     POSTGRES_HOST: host.docker.internal
+    GCP_PROJECT_ID: ${GCP_PROJECT_ID}
+    GOOGLE_CLOUD_PROJECT: ${GCP_PROJECT_ID}
+    GOOGLE_APPLICATION_CREDENTIALS: /opt/airflow/gcp/application_default_credentials.json
+    AIRFLOW_CONN_GOOGLE_CLOUD_DEFAULT: "google-cloud-platform://?project=${GCP_PROJECT_ID}"
+
   volumes:
     - ${AIRFLOW_PROJ_DIR:-.}/dags:/opt/airflow/dags
     - ${AIRFLOW_PROJ_DIR:-.}/logs:/opt/airflow/logs
     - ${AIRFLOW_PROJ_DIR:-.}/config:/opt/airflow/config
     - ${AIRFLOW_PROJ_DIR:-.}/plugins:/opt/airflow/plugins
     - ../:/opt/airflow/project
+    - type: bind
+      source: ${APPDATA}/gcloud/application_default_credentials.json
+      target: /opt/airflow/gcp/application_default_credentials.json
+      read_only: true
 
   user: "${AIRFLOW_UID:-50000}:0"
   depends_on:
